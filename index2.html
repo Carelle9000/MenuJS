@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./source/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="source/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="ges.js"></script>
+    <title>MyLibrary</title>
+</head>
+<body>
+    <header>
+        <nav class="bg-gray-800 text-white shadow pl-20 pr-20 fixed w-full space-x-4">
+            <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+                <div class="font-semibold text-white w-3">
+                    <a href="acceuil.html" class="hover:text-green-500 text-2xl">MyLibrary</a>
+                </div>
+                <div class="relative bg-gray w-2/3 items-center">
+                    <input type="text" placeholder="Rechercher un livre..." class="border border-gray-500 bg-white text-gray-300  rounded-3xl pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 w-full items-center">
+                    <svg class="absolute left-3 top-2.5 w-5 h-5 text-gray-500 search-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M10.5 2C5.81 2 2 5.81 2 10.5S5.81 19 10.5 19c2.57 0 4.93-.93 6.78-2.47l4.24 4.24 1.41-1.41-4.24-4.24A8.96 8.96 0 0019 10.5C19 5.81 15.19 2 10.5 2zm0 2C14.09 4 17 6.91 17 10.5S14.09 17 10.5 17 4 14.09 4 10.5 6.91 4 10.5 4z"/>
+                    </svg>
+                </div>
+                
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="bg-custom bg-cover bg-center pl-20 pr-20 p-4 md:p-6 lg:p-8 h-100 text-white items-center">
+            <h1 class="text-7xl text-pink-500 text-center pt-20">Bienvenue sur MyLibrary</h1>
+            <p class="text-2xl text-white text-center">Laissez-vous emporter par la magie des livres!!!</p>
+            <div class="flex-col justify-center items-center w-1/2 space-y-4 ml-60  pl-20">
+                <h2 class="text-center text-2xl ml-60 pl-20">Informations sur le Livre</h2>
+              <form action="" id="monFormulaire" class="space-y-4 items-center pl-20 pr-2 ml-60">
+                <input type="text" id="titre" placeholder="Titre du livre" required class="text-center border border-gray-300 bg-gray-500 pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 w-full">
+                <input type="text" id="auteur" placeholder="Auteur du livre" required class="text-center border border-gray-300 bg-gray-500 pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 w-full">
+                <input type="number" id="annee" placeholder="Année de publication" required class="text-center border border-gray-300 bg-gray-500 pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 w-full">
+                <div class="items-center w-1/4 ml-60">
+                    <button type="button"  class="bg-green-700 hover:bg-pink-200 text-white px-4 py-1 rounded-2xl w-full ml-20 right" onclick="reinitialiserFormulaire()">Réinitialiser</button>
+                </div>
+              </form>
+            </div>
+            <div class="space-x-4  py-2 flex justify-between items-center pt-10 w-1/2 ml-60 pl-60">
+                    <button class="bg-green-700 hover:bg-pink-200 text-white px-10 py-2 rounded-2xl" id="bouton_add" onclick="ajouterLivre()">Ajouter</button>
+                    <button class="bg-green-700 hover:bg-pink-200 text-white px-10 py-1 rounded-2xl" id="bouton_trier" onclick=" trierLivres()">Trier  </button>
+                    <button class="bg-green-700 hover:bg-pink-200 text-white px-10 py-1 rounded-2xl" id="bouton_supp" onclick="archiverLivre()">Archiver </button>
+                    <button class="bg-green-700 hover:bg-pink-200 text-white px-10 py-1 rounded-2xl" id="bouton_search" onclick="rechercherLivre()">Rechercher </button>
+                    <button class="bg-green-700 hover:bg-pink-200 text-white px-10 py-1 rounded-2xl" onclick=" mettreAJourAffichage()">Réinitialiser</button>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-gray-800 text-white text-center p-4 w-full h-auto">
+        <p class="text-4xl">Résultats des recherches</p>
+        <div class="listes livres space-x-07 px-4 py-2 flex justify-between items-center text-1xl">
+            <div class="liste1">
+                <p>Liste des livres enregistrés</p>
+                <pre id="listeLivres"></pre>
+            </div>
+            <div class="liste2">
+                <p>Liste des livres triés par nom</p>
+                <pre id="trierLivres"></pre>
+            </div>
+            <div class="liste3">
+                <p>Liste des livres archivés</p>
+                <pre id=" afficherArchives"></pre>
+            </div>
+            <div class="liste4">
+                <p>Liste des livres recherches</p>
+                <pre id="rechercherLivre"></pre>
+            </div>
+        </div>
+        <p class="pt-40">&copy; 2023 MyLibrary. All rights reserved.</p>
+    </footer>
+</body>
+</html>
